@@ -1,0 +1,140 @@
+/* --- Paleta de Colores Romántica --- */
+:root {
+    --star-color: #ffc0cb;       /* Rosa claro (como un brillo suave) */
+    --background-dark: #1a032d;  /* Púrpura oscuro profundo */
+    --flower-color-main: #ff69b4; /* Rosa Caliente (Pasión) */
+    --stem-color: #5d8f6d;       /* Verde Suave */
+    --text-color: #ffe4e1;       /* Rosa Niebla Suave */
+    --love-text-color: #dc143c;   /* Carmesí Intenso */
+    --shadow-glow: rgba(255, 105, 180, 0.7); /* Sombra rosa suave */
+}
+
+/* --- Base --- */
+body {
+    margin: 0;
+    overflow: hidden;
+    background: var(--background-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Times New Roman', serif; /* Tipo de letra más clásico */
+    color: var(--text-color);
+}
+
+/* --- Fondo Estrellado Romántico (Fondo Suave y Estrellas Rosas) --- */
+#stars-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: radial-gradient(ellipse at bottom, #3a0e4e 0%, var(--background-dark) 100%);
+    box-shadow: 0 0 100vw 100vh #000, 
+                0 0 100vw 100vh var(--star-color);
+    animation: galaxy-move 60s linear infinite;
+}
+
+@keyframes galaxy-move {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* --- Flor Creciendo y Flotando --- */
+#flower-container {
+    position: relative;
+    width: 150px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    animation: space-float 10s ease-in-out infinite alternate;
+}
+@keyframes space-float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* Tallo: Curvas más suaves */
+.stem {
+    width: 8px;
+    height: 0px; 
+    background: var(--stem-color);
+    position: absolute;
+    bottom: 0;
+    animation: grow-stem 3s forwards;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(93, 143, 109, 0.5);
+}
+@keyframes grow-stem {
+    to { height: 200px; }
+}
+
+/* Pétalos: Rosa Caliente con Sombra Romántica */
+.petals {
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    background: var(--flower-color-main);
+    position: absolute;
+    top: 5px;
+    opacity: 0;
+    animation: bloom 2s 3s forwards;
+    box-shadow: 0 0 25px var(--shadow-glow); /* Efecto de brillo suave */
+}
+@keyframes bloom {
+    0% { width: 0; height: 0; opacity: 0; }
+    100% { width: 60px; height: 60px; opacity: 1; }
+}
+
+/* --- Mensaje de Perdón (Suave y Brillante) --- */
+#apology-message {
+    color: var(--text-color);
+    font-size: 4em; /* Más grande para el toque dramático */
+    text-shadow: 0 0 20px var(--shadow-glow);
+    opacity: 0; 
+    transition: opacity 1.5s ease;
+    z-index: 10;
+    letter-spacing: 12px;
+}
+
+/* --- Elementos Flotantes (Grandes y Suaves) --- */
+.floating-element {
+    position: absolute;
+    font-size: 3.2em; /* Un poco más grande */
+    animation: float-up 15s linear infinite;
+    opacity: 0;
+    cursor: pointer;
+    transform: translateX(-50%);
+    transition: opacity 0.4s;
+    z-index: 50;
+}
+@keyframes float-up {
+    0% { transform: translate(-50%, 100vh) rotate(0deg); opacity: 0; }
+    5% { opacity: 0.9; }
+    95% { opacity: 0.9; }
+    100% { transform: translate(-50%, -100px) rotate(360deg); opacity: 0; }
+}
+
+/* --- Mensaje de "TE QUIERO" (Explosión de Amor) --- */
+#love-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5em; /* Impacto visual máximo */
+    color: var(--love-text-color);
+    text-shadow: 0 0 15px var(--text-color);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 40px var(--love-text-color);
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s; /* Animación rápida para el efecto "pop" */
+    z-index: 100;
+}
+.show-love {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) scale(1.6);
+}
