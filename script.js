@@ -1,6 +1,6 @@
 // --- 1. Animación de "PERDÓN" letra por letra (4 segundos total) ---
 
-const perdonText = "PERDÓN";
+const perdonText = "Te Quiero";
 const perdonContainer = document.getElementById('perdon-container');
 const totalDuration = 4; // Segundos
 
